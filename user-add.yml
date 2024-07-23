@@ -1,0 +1,62 @@
+---
+- name: create a user
+  hosts: all
+  become: true
+  tasks:
+  - name: add user user7
+    user:
+      name: user7
+      shell: /bin/bash
+      uid: 1007
+      home: /home/user7
+  - name: add user user8  
+    user:
+      name: user8
+      shell: /bin/bash
+      uid: 1008
+      home: /home/user8
+  - name: add user user9  
+    user:
+      name: user9
+      shell: /bin/bash
+      uid: 1009
+      home: /home/user9
+  - name: add user user10    
+    user:
+      name: user10
+      shell: /bin/bash
+      uid: 1010
+      home: /home/user10
+  - name: add user user20    
+    user:
+      name: user20
+      shell: /bin/bash
+      uid: 1020
+      home: /home/user20
+  - name: add user user30    
+    user:
+      name: user30
+      shell: /bin/bash
+      uid: 1030
+      home: /home/user30
+  - name: add user user40    
+    user:
+      name: user40
+      shell: /bin/bash
+      uid: 1040
+      home: /home/user40
+  - name: add user user50    
+    user:
+      name: user50
+      shell: /bin/bash
+      uid: 1050
+      home: /home/user50
+  - name: add user user60    
+    user:
+      name: user60
+      shell: /bin/bash
+      uid: 1060
+      home: /home/user60     
+
+
+      
