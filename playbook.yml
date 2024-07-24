@@ -34,8 +34,7 @@
        create_home: yes
        shell: /bin/bash
        group: admins,developers
-       append: yes
-   - name:add the user 'james' with a bash shell, appending the group admin
+   - name: add the user 'james' with a bash shell, appending the group admin
      ansible.builtin.user: 
        name: james
        create_home: yes
