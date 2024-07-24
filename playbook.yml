@@ -1,39 +1,44 @@
 ---
- - name: install package though playbook
-   yum: 
-     name: httpd
-     state: present
-   yum:
-     name: unzip
-     state: present
-   yum:
-     name: firewalld
-     state: present
-   group:
-     name: admin
-   group:
-     name: developers  
-   user:
-     name: user11
-     home: /bin/bash
-     passwd: 12345
+ - name: creating some users
+   hosts: all
+   become: true
+   tasks:
+   - name: install package though playbook
+     yum: 
+       name: httpd
+       state: present
+     yum:
+       name: unzip
+       state: present
+     yum:
+       name: firewalld
+       state: present
+     group:
+       name: admin
+     group:
+       name: developers  
+     user:
+       name: user11
+       home: /bin/bash
+       passwd: 12345
      group: group1
- - name: add the user johnd with a specific uid and a primary group
-   ansible.builtin.user:
-     name: johnd
-     comment: john doe
-     uid: 1044
-     group: admin
- - name: create a user johnd2 with a home directory
-   ansible.builtin.user: 
-     name: johnd2
-     create_home: yes
-     shell: /bin/bash
-     group: admins,developers
-     append: yes
- - name: add the user 'james' with a bash shell, appending the group admin
-     name: johnd2
-     create_home: yes
-     shell: /bin/bash
-     group: admins,developers
-     append: yes
+   -  name: add the user johnd with a specific uid and a primary group
+     ansible.builtin.user:
+       name: johnd
+       comment: john doe
+       uid: 1044
+       group: admin
+   - name: create a user johnd2 with a home directory
+     ansible.builtin.user: 
+       name: johnd2
+       create_home: yes
+       shell: /bin/bash
+       group: admins,developers
+       append: yes
+   - name:add the user 'james' with a bash shell, appending the group admin
+     ansible.builtin.user: 
+       name: james
+       create_home: yes
+       shell: /bin/bash
+       group: admins,developers
+       append: yes
